@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Count Down</title>
+<script>
+var i = 10;
+function countdown() {
+	document.getElementById("status").innerHTML  = i;
+	i--;
+	if ( i == 0) {
+		window.clearInterval(interval); // It stop window.setInterval function to execute any more. 
+		window.location = "http://facebook.com";
+		//window.location is used to redirect the user from one page to the other page.
+	}
+}
+var interval = window.setInterval(function() {countdown();}, 1000);
+// window.setInterval function execute the code again and again in a time interval.
+</script>
+</head>
+
+<body>
+<h2>countDown begins :
+<span id="status"> </span></h2>
+
+<h3> After the count down finish you will be redirected to http://facebook.com</h3>
+</body>
+</html>

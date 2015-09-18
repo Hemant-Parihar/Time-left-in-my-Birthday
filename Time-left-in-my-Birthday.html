@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Date_Time_countDown</title>
+<script>
+function counter() {
+	debugger;
+	var currentDate = new Date(); // Date() object will return the currentDate as well as currentTime.
+	// Targeting Date.
+	var targetDate = new Date("Jan 27, 2016 00:00:01"); // This will return the 27jan 2016.
+	console.log(targetDate, currentDate, targetDate.getTime());
+	var timeDiff = targetDate.getTime() - currentDate.getTime(); // return getTime() method will return the date in millisec since 1st Jan, 1970.
+	var seconds = Math.floor(timeDiff/1000);
+	//Divide by 1000 to get the secs timeDiff is millisec. 
+	var minutes = Math.floor(seconds/60);
+	var hours = Math.floor(minutes/60);
+	var days = Math.floor(hours/24);
+	// Math.floor will round the no. to the lowest no. 
+	
+	// Get the exact hours, minute and secs.
+	hours %= 24; // this will allow the hours from 0 to 23 range.
+	minutes %= 60; // controlled the range of minutes from 0 to 59.
+	seconds %= 60; // range 0-59;
+	
+	document.getElementById("days").innerHTML = days;
+	document.getElementById("hours").innerHTML = hours;
+	document.getElementById("mins").innerHTML = minutes;
+	document.getElementById("secs").innerHTML = seconds;
+	
+	var timer = window.setTimeout("counter()", 1000); // setTimeOut will execute once after a interval of time but it go through the loop.
+}
+</script>
+</head>
+
+<body>
+<h2> Time left in My birthday :) :). </h2>
+<p>Days Remaining: <span id="days"> </span></p>
+<p>Hours Remaining: <span id="hours"> </span></p>
+<p>Minute Remaning: <span id="mins"></span></p>
+<p>Secs Remaining: <span id="secs"></span></p>
+<script>
+// call to the counter function after all the DOM element have been loaded.
+counter();
+</script>
+</body>
+</html>
